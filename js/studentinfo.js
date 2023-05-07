@@ -145,43 +145,7 @@ function onclickDepartment(event) {
 }
 
 //________________________________________________________________
-//_______________________________________________________________
-function updateData (event){
-  event.preventDefault();
-  let id = document.getElementById("ID");
-  let name = document.getElementById("name");
-  let date = document.getElementById("date");
-  let gpa = document.getElementById("GPA");
-  let gender = document.getElementById("Gender-select");
-  let level = document.getElementById("Level-select");
-  let status = document.getElementById("Status-select");
-  let dep = document.getElementById("Department");
-  let email = document.getElementById("email");
-  let mobile = document.getElementById("phoneno");
-  if(status.value === "")
-    status = document.getElementById("Status");
-  if(level.value === "")
-    level=document.getElementById("Level");
-  if(gender.value === "")
-    gender = document.getElementById("Gender");
 
-  let students = JSON.parse(localStorage.getItem("Students")) || [];
-
-        students.forEach((student) => {
-          if (parseInt(student.ID) === parseInt(id.value)) {
-            student.Name = name.value;
-            student.ID = id.value;
-            student.DateOfBirth = date.value;
-            student.Email = email.value;
-            student.phonPhoneNumbere = mobile.value;
-            student.Department = dep.value;
-            student.GPA = gpa.value;
-            student.Level = level.value;
-            student.Gender = gender.value;
-            student.status = status.value;
-          }})
-    window.location.href = "search.html";
-}
 //________________________________________________________________
     function deleteData(event) {
       var Value =parseInt (document.getElementById("ID").value);
@@ -237,4 +201,44 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 //________________________________________________________________
 
+function updateData(event) {
+  event.preventDefault();
+  let id = document.getElementById("ID").value;
+  let name = document.getElementById("name").value;
+  let date = document.getElementById("date").value;
+  let gpa = document.getElementById("GPA").value;
+  let gender = document.getElementById("Gender-select").value;
+  let level = document.getElementById("Level-select").value;
+  let status = document.getElementById("status-select").value;
+  let dep = document.getElementById("Department").value;
+  let email = document.getElementById("email").value;
+  let mobile = document.getElementById("phoneno").value;
 
+  if (status === "")
+    status = document.getElementById("Status").value;
+  if (level === "")
+    level = document.getElementById("Level").value;
+  if (gender === "")
+    gender = document.getElementById("Gender").value;
+
+  Students.forEach((student) => {
+    if (parseInt(student.ID) === parseInt(id)) {
+      student.Name = name;
+      student.ID = id;
+      student.DateOfBirth = date;
+      student.Email = email;
+      student.PhoneNumber = mobile;
+      student.Department = dep;
+      student.GPA = gpa;
+      student.Level = level;
+      student.Gender = gender;
+      student.status = status;
+      localStorage.setItem("Students", JSON.stringify(Students));
+    }
+  });
+
+  alert("Student's info updated successfully");
+  window.location.href = "search.html";
+}
+
+//_______________________________________________________________

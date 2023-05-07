@@ -42,46 +42,46 @@
                 <div>
                     <p id="info"><b>Student's Information:</b></p>
                 </div>
-                <br>
+<!--                <br>-->
                 <div class="Add">
                     <label for="name">Name: </label>
                     <input type="text" id="name" required placeholder="Name" disabled>&nbsp;
                     <button class="edit-button" id="edit_name" onclick="onclickName(event)"><i class="fa fa-pencil"></i></button>
                 </div>
-                <br>
+<!--                <br>-->
                 <div class="Add">
                     <label for="ID">ID: </label>
                     <ion-icon name="albums-outline"></ion-icon>
                     <input type="text" id="ID" required placeholder="ID" disabled>
                     <button class="edit-button" id="edit_id" onclick="onclickID(event)" ><i class="fa fa-pencil"></i></button>
                 </div>
-                <br>
+<!--                <br>-->
                 <div class="Add">
                     <label>GPA: </label>
                     <ion-icon name="stats-chart-outline"></ion-icon>
                     <input type="text" id="GPA" required placeholder="GPA" disabled>
                     <button class="edit-button" id="edit_gpa" onclick="onclickGpa(event)"><i class="fa fa-pencil"></i></button>
                 </div>
-                <br>
+<!--                <br>-->
                 <div class="Add">
                     <span>Mobile: </span>
                     <input type="tel" id="phoneno" disabled>
                     <button class="edit-button" id="edit_phone"onclick="onclickPhone(event)"><i class="fa fa-pencil"></i></button>
                 </div>
-                <br>
+<!--                <br>-->
                 <div>
                     <label for="email">E-mail: </label>
                     <ion-icon name="mail-outline"></ion-icon>
                     <input type="text" id="email" placeholder="Email in this format: Student@stud.uniabb.edu.eg"required disabled>
                     <button class="edit-button" id="edit_email" onclick="onclickEmail(event)"><i class="fa fa-pencil"></i></button>
                 </div>
-                <br>
+<!--                <br>-->
                 <div>
                     <span>Birth Date:  </span>
                     <input type="text" id="date" required disabled>
                     <button class="edit-button" id="edit_birth" onclick="onclickBirth(event)"><i class="fa fa-pencil"></i></button>
                 </div>
-                <br>
+<!--                <br>-->
                 <div>
                 <label for="Gender">Gender: </label>
                 <input type="text" id="Gender" required disabled>
@@ -90,7 +90,7 @@
                     <option value="Female"> Female</option> -->
                 </select>
                 <button class="edit-button" id="edit_gender" onclick="onclickGender(event,'Gender','Gender-select')"><i class="fa fa-pencil"></i></button></div>
-                <br><br>
+<!--                <br><br>-->
                 <div>
                 <label for="Level">Level: </label>
                 <input type="text" id="Level" required disabled>
@@ -103,7 +103,7 @@
                         <option value="4"> 4</option> -->
                     </select>
                     <button class="edit-button" id="edit_level" onclick="onclickLevel(event,'Level','Level-select')"><i class="fa fa-pencil"></i></button></div>
-                <br><br>
+<!--                <br><br>-->
                 <div>
                 <label for="status">Status: </label>
                 <input type="text" id="status" required disabled>
@@ -113,7 +113,7 @@
                         <option value="Inactive"> Inactive</option> -->
                     </select>
                     <button class="edit-button" id="edit_status" onclick="onclickStatus(event,'status','status-select')"><i class="fa fa-pencil"></i></button></div>
-                <br><br>
+<!--                <br><br>-->
                 <div>
                 <label for="Departement">Department: </label>
                 <input type="text" id="Departement" required disabled>
@@ -130,8 +130,9 @@
                     <option value="Data Science">Decision Support</option>
                     <option value="Data Science">Scientific Computing</option>
                 </select> -->
+                <br> <br>
                 <input type="submit" onclick="updateData(event)" class="button" value="Update">
-                <input type="button" class="deleteButton" value="Delete" onclick="deleteData(event)"></button>
+                <input type="submit" class="deleteButton" value="Delete" onclick="deleteData(event)">
             </form>
         </div>
     </div>

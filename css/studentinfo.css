@@ -79,7 +79,7 @@ option {
 
 }
 
-#Gender, #Level, #status, #Departement, #date {
+#Gender, #Level, #status, #Departement, #date,#name,#ID,#phoneno,#GPA,#email {
     color: black;
     background-color: transparent;
     width: 50%;
@@ -89,6 +89,25 @@ option {
 
 #Level {
     margin-left: 65px;
+}
+
+#name {
+    margin-left: 60px;
+}
+
+#ID {
+    margin-left: 92px;
+}
+#GPA {
+    margin-left: 72px;
+}
+
+#phoneno {
+    margin-left: 50px;
+}
+
+#email {
+    margin-left: 52px;
 }
 
 #Gender {
@@ -107,8 +126,18 @@ option {
     margin-left: 27px;
 }
 
-
-.submit, input[type="reset"], input[type="button"] ,.deleteButton, input[type="button"] {
+input[type="submit"]{
+    color: white;
+    background-color: #46341d;
+    border: none;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 7px;
+}
+input[type="reset"], input[type="button"] , input[type="button"] {
     color: white;
     background-color: #46341d;
     border: none;
