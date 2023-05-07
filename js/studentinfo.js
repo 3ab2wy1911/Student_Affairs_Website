@@ -133,10 +133,17 @@ function onclickStatus(event,inputId,selectId) {
 function onclickDepartment(event) {
   event.preventDefault();
   let level = document.getElementById("Level");
-  if(parseInt(level) === 3){
-    
+  if (parseInt(level.value) === 3) {
+    let name = document.getElementById("name").value;
+    let id = document.getElementById("ID").value;
+    let department = document.getElementById("Departement").value;
+    let url = "selectdepartment.html?name=" + encodeURIComponent(name) + "&id=" + encodeURIComponent(id) + "&param3=" + encodeURIComponent(department);
+    window.location.href = url;
+  } else {
+    alert("Can't assign department for this student");
   }
 }
+
 //________________________________________________________________
 //_______________________________________________________________
 function updateData (event){
@@ -172,7 +179,7 @@ function updateData (event){
             student.Level = level.value;
             student.Gender = gender.value;
             student.status = status.value;
-          };})
+          }})
     window.location.href = "search.html";
 }
 //________________________________________________________________
