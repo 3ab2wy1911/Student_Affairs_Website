@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Student List</title>
+    <link rel="shortcut icon" type="x-icon" href="img\ourlogo.png">
+    <link rel="stylesheet" href="css\studentList.css">
+
+</head>
+<header>
+    <div class="nav-container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="afterlogin.html">
+                    <img src="img\ourlogo-removebg-preview.png">
+                </a>
+            </div>
+            <div class="menu-icons">
+                <div class="button-container">
+                    <input type="button" onclick="location.href='afterlogin.html'" value="Home">
+                    <input type="button" onclick="location.href='addstudent.html'" value="Add New Student">
+                    <input type="button" onclick="location.href='search.html'" value="Search">
+                    <input type="button" onclick="location.href='studentList.html'" value="Student List">
+                    <input type="button" onclick="location.href='home.html'" value="Log-Out">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<body>
+<img src="shadedcaps.png" id="img1">
+<div class="container">
+    <caption>
+        <h1 id="Header">
+            Student List
+        </h1>
+    </caption>
+    <div class="data">
+        <nav name="tags" class="tags">
+
+            <label for="Gender" class="labels">Gender:</label>
+
+            <select id="Gender">
+                <option value="">Any</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>&nbsp&nbsp
+
+
+            <label for="Level" class="labels">Level:</label>
+            <select id="Level">
+                <option value="">All</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>&nbsp&nbsp
+
+            <label for="Department" class="labels">Department:</label>
+            <select id="Department">
+                <option value="">Any</option>
+                <optgroup label="General">
+                    <option value="CS">CS</option>
+                    <option value="IS">IS</option>
+                    <option value="AI">AI</option>
+                    <option value="IT">IT</option>
+                    <option value="DS">DS</option>
+                </optgroup>
+                <optgroup label="Credit"></optgroup>
+                <option value="CyberSecurity">CyberSecurity</option>
+                <option value="Bioinformatics">Bioinformatics</option>
+                <option value="Data Science">Data Science</option>
+                </optgroup>
+            </select>&nbsp&nbsp
+
+            <label for="Status" class="labels">Status:</label>
+            <select id="Status">
+
+                <option value="">All</option>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+
+            </select>&nbsp&nbsp
+        </nav>
+        <table id="list">
+
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Gender</th>
+                <th>GPA</th>
+                <th>Level</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+            <tr></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+<script src="js\studentList.js"></script>
+<script>
+
+</script>
+
+</html>

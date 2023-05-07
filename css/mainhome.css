@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+}
+
+#slidingimg {
+    width: 100%;
+    height: 100%;
+    animation: zoom 3s linear infinite;
+}
+
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.slider {
+    position: relative;
+    animation: slideRight 2s forwards;
+}
+
+.slider.animated {
+    animation-name: slideLeft;
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    position: absolute;
+    top: 0;
+}
+
+.logo img {
+    width: 250px;
+    height: auto;
+    margin-right: 310px;
+}
+
+.navbar {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    margin: 35px auto;
+}
+
+.menu-icons {
+    flex: 1;
+    align-items: center;
+    text-align: right;
+}
+
+.nav-container {
+    width: 100%;
+    background-color: #f2f2f2;
+    margin-top: -40px;
+    padding-bottom: -40px;
+}
+
+
+.menu-icons input {
+    cursor: pointer;
+    width: 200px;
+    margin-right: 20px;
+    text-align: center;
+    background: rgb(50, 53, 97);
+}
+
+
+.menu-icons input:hover {
+    background-color: transparent;
+}
+
+.content {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    margin-top: 230px;
+}
+
+
+input[type="button"] {
+    background-color: rgba(70, 52, 29, 255);
+    color: white;
+    border: none;
+    height: 40px;
+    width: 20%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.button-container {
+    text-align: center;
+    margin-top: -50px;
+    margin-left: -150px;
+    width: 750px;
+}
+
+::placeholder {
+    color: white;
+}
+
+input[type="button"]:hover {
+    color: black;
+    background-color: rgba(212, 151, 63, 255);
+}

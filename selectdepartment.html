@@ -1,0 +1,70 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Select Department</title>
+    <link rel="shortcut icon" type="x-icon" href="ourlogo.png">
+    <link rel="stylesheet" href="selectdept.css">
+</head>
+<body>
+<div class="nav-container">
+    <div class="navbar">
+        <div class="logo">
+            <a href="afterlogin.html">
+                <img src="ourlogo-removebg-preview.png">
+            </a>
+        </div>
+        <div class="menu-icons">
+            <div class="button-container">
+                <input type="button" onclick="location.href='afterlogin.html'" value="Home">
+                <input type="button" onclick="location.href='addstudent.html'" value="Add New Student">
+                <input type="button" onclick="location.href='search.html'" value="Search">
+                <input type="button" onclick="location.href='studentList.html'" value="Student List">
+                <input type="button" onclick="location.href='home.html'" value="Log-Out">
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="imgbx">
+        <h2 style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);font-size: 25px; color:white;">
+            "Selecting a department is like Selecting a home away from home. Make sure it's a place where you feel you
+            belong.."</h2>
+        <br><br>
+
+        <form>
+            <div class="form-box">
+                <form>
+                    <div class="Add">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" id="name">
+                    </div>
+                    <div class="Add">
+                        <ion-icon name="albums-outline"></ion-icon>
+                        <input type="text" id="ID" required placeholder=>
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <select name="Department" id="Dep">
+                <option value="NONE" disabled selected>Please Select the departement</option>
+                <option value="General">General</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Information System">Information System</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Bioinformatics">Bioinformatics</option>
+                <option value="CyberSecurity">CyberSecurity</option>
+                <option value="Scientific Computing">Scientific Computing</option>
+                <option value="Multi-Media">Multi-Media</option>
+                <option value="Decision support">Decision support</option>
+            </select>
+            <input onclick="setDepartment()" type="submit" value="Select" id="submit">
+        </form>
+    </div>
+</section>
+<script src="selectdepartment.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

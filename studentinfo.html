@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Student Info</title>
+    <link rel="shortcut icon" type="x-icon" href="img\ourlogo.png">
+    <link rel="stylesheet" type="text/css" href="css\studentinfo.css">
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="nav-container">
+    <div class="navbar">
+        <div class="logo">
+            <a href="afterlogin.html">
+                <img src="img\ourlogo-removebg-preview.png">
+            </a>
+        </div>
+        <div class="menu-icons">
+            <div class="button-container">
+                <input type="button" onclick="location.href='afterlogin.html'" value="Home">
+                <input type="button" onclick="location.href='addstudent.html'" value="Add New Student">
+                <input type="button" onclick="location.href='search.html'" value="Search">
+                <input type="button" onclick="location.href='studentList.html'" value="Student List">
+                <input type="button" onclick="location.href='home.html'" value="Log-Out">
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="imgbx">
+        <img src="img\st.jpg" id="bgimg">
+    </div>
+    <div class="overlay">
+        <h2 style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);font-size: 25px; color:white;">
+            "As educators, it is our responsibility to know our students and help them achieve their full
+            potential."</h2>
+    </div>
+    <!-- write your inputs from here: -->
+    <div class="form-box">
+        <div class="form-value">
+            <form>
+                <div>
+                    <p id="info"><b>Student's Information:</b></p>
+                </div>
+                <br>
+                <div class="Add">
+                    <label for="name">Name: </label>
+                    <input type="text" id="name" required placeholder="Name" disabled>&nbsp;
+                    <button class="edit-button" id="edit_name" onclick="onclickName(event)"><i class="fa fa-pencil"></i>
+                </div>
+                <br>
+                <div class="Add">
+                    <label for="ID">ID: </label>
+                    <ion-icon name="albums-outline"></ion-icon>
+                    <input type="text" id="ID" required placeholder="ID" disabled>
+                    <button class="edit-button" id="edit_id" onclick="onclickID(event)" ><i class="fa fa-pencil"></i>
+                </div>
+                <br>
+                <div class="Add">
+                    <label>GPA: </label>
+                    <ion-icon name="stats-chart-outline"></ion-icon>
+                    <input type="text" id="GPA" required placeholder="GPA" disabled>
+                    <button class="edit-button" id="edit_gpa" onclick="onclickGpa(event)"><i class="fa fa-pencil"></i>
+                </div>
+                <br>
+                <div class="Add">
+                    <span>Mobile: </span>
+                    <input type="tel" id="phoneno" disabled>
+                    <button class="edit-button" id="edit_phone"onclick="onclickPhone(event)"><i class="fa fa-pencil"></i>
+                </div>
+                <br>
+                <div>
+                    <label for="email">E-mail: </label>
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="text" id="email" placeholder="Email in this format: Student@stud.uniabb.edu.eg"required disabled>
+                    <button class="edit-button" id="edit_email" onclick="onclickEmail(event)"><i class="fa fa-pencil"></i>
+                </div>
+                <br>
+                <div>
+                    <span>Birth Date:  </span>
+                    <input type="text" id="date" required disabled>
+                    <button class="edit-button" id="edit_birth" onclick="onclickBirth(event)"><i class="fa fa-pencil"></i>
+                </div>
+                <br>
+                <div>
+                <label for="Gender">Gender: </label>
+                <input type="text" id="Gender" required disabled>
+                <select id="Gender-select">
+                    <!-- <option value="Male"> Male</option>
+                    <option value="Female"> Female</option> -->
+                </select>
+                <button class="edit-button" id="edit_gender" onclick="onclickGender(event,'Gender','Gender-select')"><i class="fa fa-pencil"></i></div>
+                <br><br>
+                <div>
+                <label for="Level">Level: </label>
+                <input type="text" id="Level" required disabled>
+                <select id="Level-select" >
+                    <ion-icon name="trending-up-outline"></ion-icon>
+                    <!-- <option value="select Level" selected> select Level</option>
+                        <option value="1"> 1</option>
+                        <option value="2"> 2</option>
+                        <option value="3"> 3</option>
+                        <option value="4"> 4</option> -->
+                    </select>
+                    <button class="edit-button" id="edit_level" onclick="onclickLevel(event,'Level','Level-select')"><i class="fa fa-pencil"></i></div>
+                <br><br>
+                <div>
+                <label for="status">Status: </label>
+                <input type="text" id="status" required disabled>
+                <select id="status-select">
+                    <!-- <option value="select status" selected> select status</option>
+                        <option value="Active"> Active</option>
+                        <option value="Inactive"> Inactive</option> -->
+                    </select>
+                    <button class="edit-button" id="edit_status" onclick="onclickStatus(event,'status','status-select')"><i class="fa fa-pencil"></i></div>
+                <br><br>
+                <div>
+                <label for="Department">Department: </label>
+                <input type="text" id="Departement" required disabled>
+                <button class="edit-button" onclick="onclickDepart(event)"><i class="fa fa-pencil"></i></div>
+                <!-- <select id="Departement" disabled>
+                    <option value="G">General</option>
+                    <option value="CS">Computer Science</option>
+                    <option value="IS">Information System</option>
+                    <option value="AI">Artificial Intelligence</option>
+                    <option value="IT">Information Technology</option>
+                    <option value="DS">Data Science</option>
+                    <option value="CyberSecurity">CyberSecurity</option>
+                    <option value="Bioinformatics">Bioinformatics</option>
+                    <option value="Data Science">Decision Support</option>
+                    <option value="Data Science">Scientific Computing</option>
+                </select> -->
+                <input type="submit" onclick="myfun()" class="button" value="Update">
+                <input type="button" class="deleteButton" value="Delete" onclick="deleteData(event)">
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+<script src="js\studentinfo.js"></script>
+</html>

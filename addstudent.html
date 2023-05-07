@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add New Student</title>
+    <link rel="shortcut icon" type="x-icon" href="img/ourlogo.png">
+    <link rel="stylesheet" type="text/css" href="css/addstudentcss.css">
+</head>
+<body>
+<div class="nav-container">
+    <div class="navbar">
+        <div class="logo">
+            <a href="afterlogin.html">
+                <img src="img/ourlogo-removebg-preview.png">
+            </a>
+        </div>
+        <div class="menu-icons">
+            <div class="button-container">
+                <input type="button" onclick="location.href='afterlogin.html'" value="Home">
+                <input type="button" onclick="location.href='addstudent.html'" value="Add New Student">
+                <input type="button" onclick="location.href='search.html'" value="Search">
+                <input type="button" onclick="location.href='studentList.html'" value="Student List">
+                <input type="button" onclick="location.href='home.html'" value="Log-Out">
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="imgbx">
+        <!--        <img src="shadeddesk.png" id="bgimg">-->
+        <h2 style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);font-size: 25px; color:white;">
+            Welcome to our family! We're here to support you as you grow with our organization.</h2>
+    </div>
+    <div class="form-box">
+        <div class="form-value">
+            <form>
+                <div>
+                    <p id="info"><b>Enter the following Student's Information:</b></p>
+                </div>
+                <br>
+                <div class="Add">
+                    <ion-icon name="person-outline"></ion-icon>
+                    <input type="text" id="name" required placeholder="Name">
+                </div>
+                <br>
+                <div class="Add">
+                    <ion-icon name="albums-outline"></ion-icon>
+                    <input type="text" id="ID" required placeholder="ID">
+                </div>
+                <br>
+                <div class="Add">
+                    <ion-icon name="stats-chart-outline"></ion-icon>
+                    <input type="text" id="GPA" required placeholder="GPA">
+                </div>
+                <br>
+                <div class="Add">
+                    <ion-icon name="call-outline"></ion-icon>
+                    <input type="tel" id="phoneno" required placeholder="Phone Number">
+                </div>
+                <br>
+                <div>
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="text" id="email" placeholder="Email in this format: Student@stud.uniabb.edu.eg"
+                           required>
+                </div>
+                <br>
+                <div>
+                    <span>Birth Date:  </span>
+                    <input type="date" id="date" required>
+                </div>
+                <br>
+                <label for="Gender">Gender: </label>
+                <select id="Gender">
+                    <ion-icon name="transgender-outline"></ion-icon>
+                    <option value="select gender" selected> select gender</option>
+                    <option value="Male"> Male</option>
+                    <option value="Female"> Female</option>
+                </select>
+                <br><br>
+                <label for="Level">Level: </label>
+                <select id="Level">
+                    <ion-icon name="trending-up-outline"></ion-icon>
+                    <option value="select Level" selected> select Level</option>
+                    <option value="1"> 1</option>
+                    <option value="2"> 2</option>
+                    <option value="3"> 3</option>
+                    <option value="4"> 4</option>
+                </select>
+                <br><br>
+                <label for="status">Status: </label>
+                <select id="status">
+                    <option value="select status" selected> select status</option>
+                    <option value="Active"> Active</option>
+                    <option value="Inactive"> Inactive</option>
+                </select>
+                <br><br>
+                <label for="Departement">Department: </label>
+                <select id="Departement">
+                    <option value="select Departement" selected> select departement</option>
+                    <option value="general">General</option>
+                    <option value="CS">Computer Science</option>
+                    <option value="IS">Information System</option>
+                    <option value="AI">Artificial Intelligence</option>
+                    <option value="IT">Information Technology</option>
+                    <option value="DS">Data Science</option>
+                    <option value="CyberSecurity">CyberSecurity</option>
+                    <option value="Bioinformatics">Bioinformatics</option>
+                    <option value="Data Science">Decision Support</option>
+                    <option value="Data Science">Scientific Computing</option>
+                </select>
+                <br>
+                <input onclick="myfun()" type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="js/addstudentjs.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
