@@ -3,12 +3,7 @@ function onclickName(event) {
   let el = document.querySelector("#name");
   el.removeAttribute("disabled");
   let el2=document.getElementById("edit_name");
-  // el2.setAttribute("disabled", "disabled");
-  let students = JSON.parse(localStorage.getItem("Students")) || [];
-        students.forEach((student) => {
-          if (student.ID === Value) {
-           student.Name = document.getElementById("name");
-          }})
+  el2.setAttribute("disabled", "disabled");
 }
 //________________________________________________________________
 function onclickID(event) {
@@ -138,108 +133,35 @@ function onclickStatus(event,inputId,selectId) {
 function onclickDepartment(event) {
   event.preventDefault();
   let level = document.getElementById("Level");
-  if(parseInt(level) == 3){
+  if(parseInt(level) === 3){
     
-  };
+  }
 }
 //________________________________________________________________
-function validation()
-{
-    //name validation:
-    var name= document.getElementById("name").value;
-    var regex=/^([a-zA-Z]+)\s([a-zA-Z]+)$/
-    if (!regex.test(name))
-    {
-        alert("Please enter a valid name");
-        return false;
-    }
-
-    //id validation:
-    var id= document.getElementById("ID").value;
-    var idreg=/^\d{8}$/;
-    if (!idreg.test(id))
-    {
-        alert("Please enter a valid id which's only about 8 numbers");
-        return false;
-    }
-
-    //gpa validation:
-    var gpa= document.getElementById("GPA").value;
-    var gpareg=/^[0-5].\d{2}?$/;
-    if (!gpareg.test(gpa))
-    {
-        alert("Please enter a valid gpa which's range from 0 to 5 and up to 2 decimal digits is valid");
-        return false;
-    }
-
-    //phone validation:
-    var phone= document.getElementById("phoneno").value;
-    var phonereg=/^01[1250]\d{8}$/
-    if (!phonereg.test(phone))
-    {
-        alert("Please enter a valid phone number which starts with 01 followed by 9 numbers");
-        return false;
-    }
-
-    // //email validation:
-    var email = document.getElementById("email").value;
-    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+\.[^\s@]+\.[^\s@]+$/;
-    if (!regex.test(email)) 
-    {
-      alert("Please enter a valid email address that follows this format: Student@stud.uniabb.edu.eg");
-      return false;
-    }
-
-    //date validation:
-    var date = new Date(document.getElementById("date").value);
-    var minDate = new Date("1999-01-01");
-    var maxDate = new Date("2006-12-31");
-
-    if (date < minDate || date > maxDate) {
-        alert("Please enter a valid date between 1999 and 2006");
-        return false;
-    }
-
-    //dept validation:
-    var dept= document.getElementById("Departement").value;
-    var level= document.getElementById("Level").value;
-    if (level<3)
-    {
-        if (dept!="general")
-        {
-            alert("Please enter a valid department, where if the level is less than 3 the department MUST be general");
-            return false;
-        }
-    }
-    else if (level>=3)
-    {
-        if (dept=="general")
-        {
-            alert("Please enter a valid department, where if the level is greater than or equal 3 the department MUST NOT be general");
-            return false;
-        }
-    }
-    return true;
-
-}
 //_______________________________________________________________
 function updateData (event){
   event.preventDefault();
-  var id = document.getElementById("ID");
-  var name = document.getElementById("name");
-  var date = document.getElementById("date");
-  var gpa = document.getElementById("GPA");
-  var gender = document.getElementById("Gender");
-  var level = document.getElementById("Level");
-  var status = document.getElementById("Status");
-  var dep = document.getElementById("Department");
-  var email = document.getElementById("email");
-  var mobile = document.getElementById("phoneno");
+  let id = document.getElementById("ID");
+  let name = document.getElementById("name");
+  let date = document.getElementById("date");
+  let gpa = document.getElementById("GPA");
+  let gender = document.getElementById("Gender-select");
+  let level = document.getElementById("Level-select");
+  let status = document.getElementById("Status-select");
+  let dep = document.getElementById("Department");
+  let email = document.getElementById("email");
+  let mobile = document.getElementById("phoneno");
+  if(status.value === "")
+    status = document.getElementById("Status");
+  if(level.value === "")
+    level=document.getElementById("Level");
+  if(gender.value === "")
+    gender = document.getElementById("Gender");
 
   let students = JSON.parse(localStorage.getItem("Students")) || [];
 
         students.forEach((student) => {
-          if (parseInt(student.ID) == Value) {
+          if (parseInt(student.ID) === parseInt(id.value)) {
             student.Name = name.value;
             student.ID = id.value;
             student.DateOfBirth = date.value;

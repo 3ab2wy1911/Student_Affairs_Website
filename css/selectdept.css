@@ -17,7 +17,7 @@ section {
 }
 
 section .imgbx {
-    background: url("shadedselectdept.png");
+    background: url("../img/shadedselectdept.png");
     position: relative;
     width: 100%;
     height: 100%;

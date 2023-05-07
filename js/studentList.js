@@ -18,7 +18,16 @@ Students.forEach((student) => {
     let department11 = row11.insertCell(5);
     let status11 = row11.insertCell(6);
 
-    name11.innerHTML = `<a class="Link" href="studentinfo.html">${student.Name}</a>`;
+    name11.innerHTML = `<a href="studentinfo.html?name=${encodeURIComponent(student.Name)}
+    &ID=${encodeURIComponent(student.ID)}
+    &gpa=${encodeURIComponent(student.GPA)}
+    &Level=${encodeURIComponent(student.Level)}
+    &Departement=${encodeURIComponent(student.Department)}
+    &Gender=${encodeURIComponent(student.Gender)}
+    &status=${encodeURIComponent(student.Status)}
+    &phoneno=${encodeURIComponent(student.PhoneNumber)}
+    &date=${encodeURIComponent(student.DateOfBirth)}
+    &email=${encodeURIComponent(student.Email)}">${student.Name}</a>`;
     id11.innerHTML = student.ID;
     gender11.innerHTML = student.Gender;
     gpa11.innerHTML = student.GPA;
