@@ -228,3 +228,23 @@ def MainHomePage(request):
 
 def AfterLoginPage(request):
     return render(request, 'afterlogin.html')
+
+
+def StudentInfo(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+
+    context = {
+        'student': student,
+    }
+
+    return render(request, 'studentinfo.html', context)
+
+
+def SelectDepartment(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+
+    context = {
+        'student': student,
+    }
+
+    return render(request, 'selectdepartment.html', context)

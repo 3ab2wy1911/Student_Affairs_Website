@@ -12,14 +12,17 @@ urlpatterns = [
     path('register/', views.RegisterPage, name='RegisterPage'),
     path('register/sent/', views.RegisterSent, name='RegisterSent'),
     path('list/', views.ListStudentPage, name='ListStudentPage'),
-    path('search',views.search_view,name='search'),
-    path ('login/',views.login_page,name='loginpage'),
+    path('search', views.search_view, name='search'),
+    path('login/', views.login_page, name='loginpage'),
     path('login/Login_validation', views.Login_validation, name='Login_validation'),
     path('home/', views.HomePage, name='HomePage'),
-    path('',views.MainHomePage , name = 'MainHome'),
-    path('afterlogin/',views.AfterLoginPage , name = 'AfterLogin')
+    path('', views.MainHomePage, name='MainHome'),
+    path('afterlogin/', views.AfterLoginPage, name='AfterLogin'),
+    path('StudentInfo/<int:student_id>/',
+         views.StudentInfo, name='StudentInfoPage'),
+    path('selectdepartment/<int:student_id>', views.SelectDepartment,
+         name='SelectDepartmentPage'),
 
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-

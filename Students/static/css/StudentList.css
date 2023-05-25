@@ -107,6 +107,11 @@ thead {
   border-radius: 12px;
 }
 
+#list a {
+  text-decoration: none;
+  color: white;
+}
+
 #Gender,
 #Level,
 #Department,
