@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <link rel="shortcut icon" type="x-icon" href="{%static 'img/ourlogo.png' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/StudentList.css' %}">
+
+</head>
+<header>
+    <div class="nav-container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="{% url 'AfterLogin' %}">
+                    <img src="{% static 'img/ourlogo-removebg-preview.png' %}">
+                </a>
+            </div>
+            <div class="menu-icons">
+                <div class="button-container">
+                    <a href="{% url 'AfterLogin' %}"><input type="button" value="Home"></a>
+                    <a href="{% url 'AddStudentPage' %}"><input type="button" value="Add New Student"></a>
+                    <a href="{% url 'search' %}"><input type="button" value="Search"></a>
+                    <a href="{% url 'ListStudentPage' %}"><input type="button" value="Student List"></a>
+                    <a href="{% url 'HomePage' %}"><input type="button" value="Log-Out"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<body>
+    <div class="container">
+        <caption>
+            <h1 id="Header">
+                Student List
+            </h1>
+
+        </caption>
+        <div class="data">
+            <form>
+                <nav name="tags" class="tags">
+                    <label for="Gender" class="labels">Gender:</label>
+                    <select id="Gender">
+                        <option value="">Any</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>&nbsp;&nbsp;
+
+                    <label for="Level" class="labels">Level:</label>
+                    <select id="Level">
+                        <option value="">All</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>&nbsp;&nbsp;
+
+                    <label for="Department" class="labels">Department:</label>
+                    <select id="Department">
+                        <option value="">Any</option>
+                        <optgroup label="General">
+                            <option value="CS">CS</option>
+                            <option value="IS">IS</option>
+                            <option value="AI">AI</option>
+                            <option value="IT">IT</option>
+                            <option value="DS">DS</option>
+                        </optgroup>
+                        <optgroup label="Credit">
+                            <option value="CyberSecurity">CyberSecurity</option>
+                            <option value="Bioinformatics">Bioinformatics</option>
+                            <option value="Data Science">Data Science</option>
+                        </optgroup>
+                    </select>&nbsp;&nbsp;
+
+                    <label for="Status" class="labels">Status:</label>
+                    <select id="Status">
+                        <option value="">All</option>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>&nbsp;&nbsp;
+            </form>
+            </nav>
+            <table id="list">
+                <br>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>Gender</th>
+                        <th>GPA</th>
+                        <th>Level</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.student_id }}</td>
+                        <td>{{ student.gender }}</td>
+                        <td>{{ student.gpa }}</td>
+                        <td>{{ student.level }}</td>
+                        <td>{{ student.department }}</td>
+                        <td>{{ student.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="{% static 'js/StudentList.js' %}"></script>
+</body>
+
+</html>
