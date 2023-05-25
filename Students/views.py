@@ -130,8 +130,8 @@ def RegisterSent(request):
                 phoneNumber=phoneNumber,
             )
             register.save()
-            messages.success(request, 'Registration successful!')
-            return redirect('RegisterPage')
+            # messages.success(request, 'Registration successful!')
+            return redirect('AfterLogin')
         else:
             messages.error(
                 request, 'Registration failed. Please check your input.')
@@ -210,7 +210,7 @@ def Login_validation(request):
         for x in register:
             if email == x.email:
                 if password == x.password:
-                    messages.success(request, 'Login successful!')
+                    # messages.success(request, 'Login successful!')
                     return redirect('AfterLogin')
         messages.error(request, 'Invalid email or password.')
         return redirect('loginpage')
