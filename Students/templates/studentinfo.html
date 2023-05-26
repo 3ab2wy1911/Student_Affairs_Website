@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Student Info</title>
+    <link rel="shortcut icon" type="x-icon" href="{% static 'img/ourlogo.png'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/studentinfo.css' %}">
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="nav-container">
+    <div class="navbar">
+        <div class="logo">
+            <a href=" url 'after_login' ">
+                <img src="{% static 'img/ourlogo-removebg-preview.png'%}">
+            </a>
+        </div>
+        <div class="menu-icons">
+            <div class="button-container">
+                <a href="{% url 'AfterLogin' %}"><input type="button" value="Home"></a>
+                <a href="{% url 'AddStudentPage' %}"><input type="button" value="Add New Student"></a>
+                <a href="{% url 'search' %}"><input type="button" value="Search"></a>
+                <a href="{% url 'ListStudentPage' %}"><input type="button" value="Student List"></a>
+                <a href="{% url 'HomePage' %}"><input type="button" value="Log-Out"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="imgbx">
+        <img src="{% static 'img/st.jpg' %}" id="bgimg">
+    </div>
+    <div class="overlay">
+        <h2 style="position:absolute; top:50%; left:30%; transform:translate(-50%,-50%);font-size: 25px; color:white;">
+            "As educators, it is our responsibility to <br> know our students and help them <br> achieve their full
+            potential."</h2>
+    </div>
+    <div class="form-box">
+        <div class="form-value">
+            <form action=" url 'update_student' student.id " method="POST">
+                {% csrf_token %}
+                <div>
+                    {% csrf_token %}
+                    <br><br><br>
+                    <p id="info"><b> Student Information:</b></p>
+                </div>
+                    <br>
+                    <div class="Add">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" id="name" name="name" required placeholder="Name" value="{{ student.name }}">
+                    </div>
+                    <br>
+                    <div class="Add">
+                        <ion-icon name="albums-outline"></ion-icon>
+                        <input type="text" id="ID" name="ID" required placeholder="ID" value="{{ student.student_id }}">
+                    </div>
+                    <br>
+                    <div class="Add">
+                        <ion-icon name="stats-chart-outline"></ion-icon>
+                        <input type="text" id="GPA" name="GPA" required placeholder="GPA" value="{{ student.gpa }}">
+                    </div>
+                    <br>
+                    <div class="Add">
+                        <ion-icon name="call-outline"></ion-icon>
+                        <input type="tel" id="phoneno" name="phoneno" required placeholder="Phone Number" value="{{ student.phone_number }}">
+                    </div>
+                    <br>
+                    <div>
+                        <ion-icon name="mail-outline"></ion-icon>
+                        <input type="text" id="email" name="email" placeholder="Email in this format: Student@stud.uniabb.edu.eg" required value="{{ student.email }}">
+                    </div>
+                    <br>
+                    <div>
+                        <label for="date">Birth Date:</label>
+                        <input type="date" id="date" name="date" value="{{  student.birth_date|date:'Y-m-d' }}" required>
+
+                    </div>
+                    <br>
+                    <label for="Gender">Gender:  </label>
+                    <select id="Gender" name="Gender">
+                        <ion-icon name="transgender-outline"></ion-icon>
+                        <option value="" disabled selected> select gender </option>
+                        <option value="Male" {% if student.gender == 'Male' %}selected{% endif %}> Male </option>
+                        <option value="Female" {% if student.gender == 'Female' %}selected{% endif %}> Female </option>
+                    </select>
+                    <br><br>
+                    <label for="Level">Level:  </label>
+                    <select id="Level" name="Level">
+                    <ion-icon name="trending-up-outline"></ion-icon>
+                    <option value="" disabled> select Level </option>
+                    <option value="1" {% if student.level == 1 %}selected{% endif %}> 1 </option>
+                    <option value="2" {% if student.level == 2 %}selected{% endif %}> 2 </option>
+                    <option value="3" {% if student.level == 3 %}selected{% endif %}> 3 </option>
+                    <option value="4" {% if student.level == 4 %}selected{% endif %}> 4 </option>
+                    </select>
+                    <br><br>
+
+                    <label for="status">Status:  </label>
+                    <select id="status" name="status">
+                        <option value="" disabled selected> select status </option>
+                        <option value="Active" {% if student.status == 'Active' %}selected{% endif %}> Active </option>
+                        <option value="Inactive" {% if student.status == 'Inactive' %}selected{% endif %}> Inactive </option>
+                    </select>
+                    <br><br>
+                    <label for="Department">Department:  </label>
+                    <select id="Department" name="Department" disabled>
+                        <option value="" disabled selected> select department </option>
+                        <option value="general" {% if student.department == 'general' %}selected{% endif %}>General</option>
+                        <option value="CS" {% if student.department == 'CS' %}selected{% endif %}>Computer Science</option>
+                        <option value="IS" {% if student.department == 'IS' %}selected{% endif %}>Information System</option>
+                        <option value="AI" {% if student.department == 'AI' %}selected{% endif %}>Artificial Intelligence</option>
+                        <option value="IT" {% if student.department == 'IT' %}selected{% endif %}>Information Technology</option>
+                        <option value="DS" {% if student.department == 'DS' %}selected{% endif %}>Data Science</option>
+                        <option value="CyberSecurity" {% if student.department == 'CyberSecurity' %}selected{% endif %}>CyberSecurity</option>
+                        <option value="Bioinformatics" {% if student.department == 'Bioinformatics' %}selected{% endif %}>Bioinformatics</option>
+                        <option value="Decision Support" {% if student.department == 'Decision Support' %}selected{% endif %}>Decision Support</option>
+                        <option value="Scientific Computing" {% if student.department == 'Scientific Computing' %}selected{% endif %}>Scientific Computing</option>
+                    </select>
+                    br&nbsp;&nbsp;&nbsp;<a href="{% url 'SelectDepartmentPage' student_id=student.id %}" class="edit-button">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <br><br>
+                    <div class="button-container">
+                        <input id="submit" type="submit" value="Update">
+                        <input type="submit" value="Delete">
+                    </div>
+                </form>
+            </div>
+    </div>
+</section>
+</body>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+<!-- <script src="{ % static 'js/studentinfo.js' %}"></script> -->
+</body>
+</html>

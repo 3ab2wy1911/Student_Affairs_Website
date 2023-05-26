@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <title>Home</title>
+    <link rel="shortcut icon" type="x-icon" href="{% static 'img/ourlogo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/afterlogin.css' %}">
+</head>
+
+<body onload="slide()">
+    <div class="banner">
+        <div class="slider">
+            <img src="{% static 'img/studaff2.jpg' %}" id="slidingimg">
+        </div>
+        <div class="overlay">
+            <div class="nav-container">
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="{% url 'AfterLogin' %}">
+                            <img src="{% static 'img/ourlogo-removebg-preview.png' %}">
+                        </a>
+                    </div>
+                    <div class="menu-icons">
+                        <div class="button-container">
+                            <a href="{% url 'AfterLogin' %}"><input type="button" value="Home"></a>
+                            <a href="{% url 'AddStudentPage' %}"><input type="button" value="Add New Student"></a>
+                            <a href="{% url 'search' %}"><input type="button" value="Search"></a>
+                            <a href="{% url 'ListStudentPage' %}"><input type="button" value="Student List"></a>
+                            <a href="{% url 'HomePage' %}"><input type="button" value="Log-Out"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mainhometitle">
+                <h1>We're thrilled to have you as part of our college community! Our student affairs website is here to
+                    help you thrive.</h1>
+            </div>
+        </div>
+    </div>
+    <script>
+        var slideimg = document.getElementById("slidingimg");
+        var images = new Array
+            (
+                "{% static 'img/studaff2.jpg' %}",
+                "{% static 'img/caps.jpg' %} ",
+                "{% static 'img/board.webp' %}",
+                "{% static 'img/desk.webp' %}",
+                "{% static 'img/lec.jpg' %}",
+                "{% static 'img/grad.jpg' %}",
+            );
+        var len = images.length;
+        var i = 0;
+        function slide() {
+            if (i > len - 1) {
+                i = 0;
+            }
+            slidingimg.src = images[i];
+            i++;
+            setTimeout('slide()', 3000);
+        }
+    </script>
+</body>
+
+</html>

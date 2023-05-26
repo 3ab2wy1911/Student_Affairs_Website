@@ -1,0 +1,71 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Select Department</title>
+    <link rel="shortcut icon" type="x-icon" href="{% static 'img/ourlogo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/selectdept.css' %}">
+</head>
+<body>
+<div class="nav-container">
+    <div class="navbar">
+        <div class="logo">
+            <a href="{% static 'afterlogin.html' %}">
+                <img src="{% static 'img/ourlogo-removebg-preview.png' %}">
+            </a>
+        </div>
+        <div class="menu-icons">
+            <div class="menu-icons">
+                <div class="button-container">
+                    <a href="{% url 'AfterLogin' %}"><input type="button" value="Home"></a>
+                    <a href="{% url 'AddStudentPage' %}"><input type="button" value="Add New Student"></a>
+                    <a href="{% url 'search' %}"><input type="button" value="Search"></a>
+                    <a href="{% url 'ListStudentPage' %}"><input type="button" value="Student List"></a>
+                    <a href="{% url 'HomePage' %}"><input type="button" value="Log-Out"></a>
+                </div>
+            </div>
+    </div>
+</div>
+<section>
+    <div class="imgbx">
+        <h2 style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);font-size: 25px; color:white;">
+            "Selecting a department is like Selecting a home away from home. Make sure it's a place where you feel you
+            belong.."</h2>
+        <br><br>
+        <div class="form-box">
+                <form>
+                    <div class="Add">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="text" id="name" value="{{ student.name }}">
+                    </div>
+                    <div class="Add">
+                        <ion-icon name="albums-outline"></ion-icon>
+                        <input type="text" id="ID" required value="{{ student.student_id }}">
+                    </div>
+                    <br>
+                </form>
+            </div>
+        <form method="post">
+            {% csrf_token %}
+            <select name="Department" id="Dep">
+                <option value="" disabled selected> select department </option>
+                <option value="general" {% if student.department == 'general' %}selected{% endif %}>General</option>
+                <option value="CS" {% if student.department == 'CS' %}selected{% endif %}>Computer Science</option>
+                <option value="IS" {% if student.department == 'IS' %}selected{% endif %}>Information System</option>
+                <option value="AI" {% if student.department == 'AI' %}selected{% endif %}>Artificial Intelligence</option>
+                <option value="IT" {% if student.department == 'IT' %}selected{% endif %}>Information Technology</option>
+                <option value="DS" {% if student.department == 'DS' %}selected{% endif %}>Data Science</option>
+                <option value="CyberSecurity" {% if student.department == 'CyberSecurity' %}selected{% endif %}>CyberSecurity</option>
+                <option value="Bioinformatics" {% if student.department == 'Bioinformatics' %}selected{% endif %}>Bioinformatics</option>
+                <option value="Decision Support" {% if student.department == 'Decision Support' %}selected{% endif %}>Decision Support</option>
+                <option value="Scientific Computing" {% if student.department == 'Scientific Computing' %}selected{% endif %}>Scientific Computing</option>
+            </select>
+            <input type="submit" value="Select" id="submit">
+        </form>
+    </div>
+</section>
+<!-- <script src="{% static 'js/selectdepartment.js' %}"></script> -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
