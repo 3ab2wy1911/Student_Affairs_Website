@@ -239,15 +239,16 @@ def StudentInfo(request, student_id):
 
     return render(request, 'studentinfo.html', context)
 
+
 def SelectDepartment(request, student_id):
     student = get_object_or_404(Student, id=student_id)
 
-    if(request.method == "POST"):
+    if (request.method == "POST"):
         dep = request.POST.get("Department")
         student.department = request.POST['Department']
         student.save()
         context = {
-           'student': student,
+            'student': student,
         }
         return render(request, 'studentinfo.html', context)
     else:
@@ -255,3 +256,52 @@ def SelectDepartment(request, student_id):
             'student': student,
         }
         return render(request, 'selectdepartment.html', context)
+
+
+def update_student(request, student_id):
+    if request.method == 'POST':
+
+        student = Student.objects.get(id=student_id)
+        name = request.POST['name']
+        id = request.POST['ID']
+        gpa = request.POST['GPA']
+        number = request.POST['phoneno']
+        email = request.POST['email']
+        birth_date = request.POST['date']
+        gender = request.POST['Gender']
+        level = request.POST['Level']
+        Status = request.POST['status']
+        department = student.department
+        if validate_data(name, id, gpa, number, email, birth_date, gender, Status, level, department):
+            student = Student.objects.get(id=student_id)
+            student.name = request.POST['name']
+            student.student_id = request.POST['ID']
+            student.gpa = request.POST['GPA']
+            student.phone_number = request.POST['phoneno']
+            student.email = request.POST['email']
+            student.birth_date = request.POST['date']
+            student.gender = request.POST['Gender']
+            student.level = request.POST['Level']
+            student.status = request.POST['status']
+            student.save()
+
+        else:
+            messages.error(
+                request, 'Updating failed. Please check your input.')
+            return redirect('StudentInfoPage', student_id=student.id)
+        return redirect('ListStudentPage')
+
+    student = Student.objects.get(id=student_id)
+    return render(request, 'update_student.html', {'student': student})
+
+
+def delete_student(request, student_id):
+    if request.method == 'POST':
+
+        student = Student.objects.get(id=student_id)
+        student.delete()
+
+        return redirect('ListStudentPage')
+
+    student = Student.objects.get(id=student_id)
+    return render(request, 'delete_student.html', {'student': student})

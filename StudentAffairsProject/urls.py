@@ -22,7 +22,10 @@ urlpatterns = [
          views.StudentInfo, name='StudentInfoPage'),
     path('selectdepartment/<int:student_id>', views.SelectDepartment,
          name='SelectDepartmentPage'),
-
+    path('update_student/<int:student_id>/',
+         views.update_student, name='update_student'),
+    path('delete_student/<int:student_id>/',
+         views.delete_student, name='delete_student'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
