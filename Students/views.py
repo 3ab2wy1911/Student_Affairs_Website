@@ -184,16 +184,15 @@ def search_view(request):
     students = Student.objects.all()
     if 'term' in request.GET:
         var = request.GET.get('term')
+        search_by = request.GET.get('search_by', 'name')
         print(var)
-        qs = Student.objects.filter(name__contains=var)
-        values = list()
-        for name in qs:
-            print(name.name)
-            values.append(name.name)
-        qs = Student.objects.filter(student_id__contains=var)
-        for id in qs:
-            print(id.student_id)
-            values.append(id.student_id)
+
+        if search_by == 'name':
+            qs = Student.objects.filter(name__icontains=var)
+        else:
+            qs = Student.objects.filter(student_id__icontains=var)
+
+        values = [student.name for student in qs] if search_by == 'name' else [student.student_id for student in qs]
         return JsonResponse(values, safe=False)
 
     students = Student.objects.all()
