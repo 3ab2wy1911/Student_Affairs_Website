@@ -185,12 +185,12 @@ def search_view(request):
     if 'term' in request.GET:
         var = request.GET.get('term')
         print(var)
-        qs = Student.objects.filter(name__contains = var)
+        qs = Student.objects.filter(name__contains=var)
         values = list()
         for name in qs:
             print(name.name)
             values.append(name.name)
-        qs = Student.objects.filter(student_id__contains = var)
+        qs = Student.objects.filter(student_id__contains=var)
         for id in qs:
             print(id.student_id)
             values.append(id.student_id)
@@ -318,6 +318,14 @@ def update_student(request, student_id):
         level = request.POST['Level']
         Status = request.POST['status']
         department = student.department
+
+        student = Student.objects.all()
+        for x in student:
+            if id == x.student_id:
+                if (student_id != x.id):
+                    messages.error(request, 'Id is already used !!!')
+                    return redirect('StudentInfoPage', student_id)
+
         if validate_data_info(name, id, gpa, number, email, birth_date, gender, Status, level, department):
             student = Student.objects.get(id=student_id)
             student.name = request.POST['name']
@@ -334,7 +342,8 @@ def update_student(request, student_id):
         else:
             messages.error(
                 request, 'Updating failed. Please check your input.')
-            return redirect('StudentInfoPage', student_id=student.id)
+            return redirect('StudentInfoPage', student_id)
+        messages.success(request, "Student updated successfully!")
         return redirect('ListStudentPage')
 
     student = Student.objects.get(id=student_id)
@@ -346,6 +355,7 @@ def delete_student(request, student_id):
 
         student = Student.objects.get(id=student_id)
         student.delete()
+        messages.success(request, "Student deleted successfully!")
 
         return redirect('ListStudentPage')
 

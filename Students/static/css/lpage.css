@@ -159,3 +159,32 @@ a:hover {
     margin-top: -40px;
     padding-bottom: -30px;
 }
+
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.alert-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-color: #bee5eb;
+}
