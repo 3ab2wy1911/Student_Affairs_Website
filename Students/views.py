@@ -2,6 +2,7 @@ from pyexpat.errors import messages
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.http import JsonResponse
 from .models import Student
 from . models import Register
 import re
@@ -180,19 +181,21 @@ def ListStudentPage(request):
 
 
 def search_view(request):
-    # Get the search query from the request's GET parameters
-    search_query = request.GET.get('search')
+    students = Student.objects.all()
+    if 'term' in request.GET:
+        var = request.GET.get('term')
+        print(var)
+        qs = Student.objects.filter(name__contains = var)
+        values = list()
+        for name in qs:
+            print(name.name)
+            values.append(name.name)
+        qs = Student.objects.filter(student_id__contains = var)
+        for id in qs:
+            print(id.student_id)
+            values.append(id.student_id)
+        return JsonResponse(values, safe=False)
 
-    # Get the search option (name or ID) from the request's GET parameters
-    search_option = request.GET.get('searchTag')
-
-    # Perform the search based on the search query and option
-    if search_option == 'NAME':
-        students = Student.objects.filter(name__icontains=search_query)
-    elif search_option == 'ID':
-        students = Student.objects.filter(student_id__icontains=search_query)
-    else:
-        students = []
     students = Student.objects.all()
     context = {'students': students}
     return render(request, 'search.html', context)

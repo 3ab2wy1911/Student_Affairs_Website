@@ -7,6 +7,9 @@
     <title>Search</title>
     <link rel="shortcut icon" type="x-icon" href="{% static 'img/ourlogo.png' %}">
     <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 </head>
 <script src="{% static 'js/search.js' %}"></script>
 
@@ -36,22 +39,32 @@
                 style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);font-size: 25px; color:white;">
                 "Searching is not just about seeking, it's about finding what you need and using it to create something
                 new.."</h2>
-            <input type="text" id="search" required
+            <input type="text" id="search" name = "search" required
                 placeholder="Please let us know according to what you want to find your student: ">
+            <script>
+                $( function() {
+                    $( "#search" ).autocomplete({
+                        source: '{%url "search"%}'
+                    });
+                } );
+            </script>
             <button onclick="searchFunction()">Search</button>
             <br><br>
-            <div class="search-options">
-                <input type="radio" name="searchTag" id="option-1" checked>
-                <input type="radio" name="searchTag" id="option-2">
-                <label for="option-1" class="option option-1">
-                    <div class="opt"></div>
-                    <span>NAME</span>
-                </label>
-                <label for="option-2" class="option option-2">
-                    <div class="opt"></div>
-                    <span>ID</span>
-                </label>
-            </div>
+            <form method = 'post'>
+                <div class="search-options">
+                    {% csrf_token %}
+                    <input type="radio" name="nameTag" id="option-1" onclick="Request" value="NAME" checked>
+                    <input type="radio" name="nameTag" id="option-2" onclick="Request" value="ID">
+                    <label for="option-1" class="option option-1">
+                        <div class="opt"></div>
+                        <span>NAME</span>
+                    </label>
+                    <label for="option-2" class="option option-2">
+                        <div class="opt"></div>
+                        <span>ID</span>
+                    </label>
+                </div>
+            </form>
             <br><br><br><br>
             <div>
                 <table class="search-table">
