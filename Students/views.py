@@ -258,6 +258,49 @@ def SelectDepartment(request, student_id):
         return render(request, 'selectdepartment.html', context)
 
 
+def validate_data_info(name, id, gpa, phone_number, email, birth_date, gender, Status, level, department):
+    # Name validation
+    name_regex = r'^([a-zA-Z]+)\s([a-zA-Z]+)$'
+    if not re.match(name_regex, name):
+        return False
+
+    # ID validation
+    id_regex = r'^\d{8}$'
+    if not re.match(id_regex, id):
+        return False
+
+    # GPA validation
+    gpa_regex = r'^[0-5]\.\d{2}$'
+    if not re.match(gpa_regex, gpa):
+        return False
+
+    # Phone number validation
+    phone_regex = r'^01[1250]\d{8}$'
+    if not re.match(phone_regex, phone_number):
+        return False
+
+    # Email validation
+    email_regex = r'^[^\s@]+@[^\s@]+\.[^\s@]+\.[^\s@]+\.[^\s@]+$'
+    if not re.match(email_regex, email):
+        return False
+
+    # Birth date validation
+    min_date = datetime.date(1999, 1, 1)
+    max_date = datetime.date(2006, 12, 31)
+    birth_date = datetime.datetime.strptime(birth_date, '%Y-%m-%d').date()
+    if birth_date < min_date or birth_date > max_date:
+        return False
+
+    # Department validation
+    level = int(level)
+    if level < 3 and department != "general":
+        return False
+    elif level > 3 and department == "general":
+        return False
+
+    return True
+
+
 def update_student(request, student_id):
     if request.method == 'POST':
 
@@ -272,7 +315,7 @@ def update_student(request, student_id):
         level = request.POST['Level']
         Status = request.POST['status']
         department = student.department
-        if validate_data(name, id, gpa, number, email, birth_date, gender, Status, level, department):
+        if validate_data_info(name, id, gpa, number, email, birth_date, gender, Status, level, department):
             student = Student.objects.get(id=student_id)
             student.name = request.POST['name']
             student.student_id = request.POST['ID']
