@@ -39,22 +39,41 @@
                 style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);font-size: 25px; color:white;">
                 "Searching is not just about seeking, it's about finding what you need and using it to create something
                 new.."</h2>
-            <input type="text" id="search" name = "search" required
+            <input type="text" id="search" name="search" required
                 placeholder="Please let us know according to what you want to find your student: ">
             <script>
-                $( function() {
-                    $( "#search" ).autocomplete({
-                        source: '{%url "search"%}'
+                $(function () {
+                    $("#search").autocomplete({
+                        source: function (request, response) {
+                            var searchBy = $("input[name='search_by']:checked").val();
+                            $.ajax({
+                                url: "{% url 'search' %}",
+                                data: {
+                                    term: request.term,
+                                    search_by: searchBy
+                                },
+                                success: function (data) {
+                                    response(data);
+                                }
+                            });
+                        },
+                        minLength: 1,
+                        select: function (event, ui) {
+                            event.preventDefault();
+                            $("#search").val(ui.item.value);
+                        }
                     });
-                } );
+                });
             </script>
+
+
             <button onclick="searchFunction()">Search</button>
             <br><br>
-            <form method = 'post'>
+            <form id="search-form" method="get">
                 <div class="search-options">
                     {% csrf_token %}
-                    <input type="radio" name="nameTag" id="option-1" onclick="Request" value="NAME" checked>
-                    <input type="radio" name="nameTag" id="option-2" onclick="Request" value="ID">
+                    <input type="radio" name="search_by" id="option-1" value="name" checked>
+                    <input type="radio" name="search_by" id="option-2" value="id">
                     <label for="option-1" class="option option-1">
                         <div class="opt"></div>
                         <span>NAME</span>
@@ -65,6 +84,8 @@
                     </label>
                 </div>
             </form>
+
+
             <br><br><br><br>
             <div>
                 <table class="search-table">
