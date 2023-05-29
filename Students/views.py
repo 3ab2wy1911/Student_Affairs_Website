@@ -147,8 +147,8 @@ def validateRegister(name, email, password, confirmPassword, phoneNumber):
     if not re.match(name_regex, name):
         return False
 
-    # Email validation
-    email_regex = r'^[^\s@]+@[^\s@]+\.[^\s@]+\.[^\s@]+\.[^\s@]+$'
+     # Email validation
+    email_regex = r'^[^\s@]+@gmail\.com$'
     if not re.match(email_regex, email):
         return False
 
