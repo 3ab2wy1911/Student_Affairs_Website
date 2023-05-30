@@ -99,15 +99,18 @@
                         </tr>
                     </thead>
                     <tbody id="table-body">
-                        {% for student in students %}
-                        <tr>
-                            <td><a href="{% url 'StudentInfoPage' student_id=student.id %}">{{ student.name }}</a></td>
-                            <td>{{ student.student_id }}</td>
-                            <td>{{ student.level }}</td>
-                            <td>{{ student.department }}</td>
-                            <td>{{ student.status }}</td>
-                        </tr>
-                        {% endfor %}
+                            {% for student in students %}
+                            <tr>
+                                <td><a href="{% url 'StudentInfoPage' student_id=student.id %}">{{ student.name }}</a></td>
+                                <td>{{ student.student_id }}</td>
+                                <td>{{ student.level }}</td>
+                                <td>{{ student.department }}</td>
+                                <td>{{ student.status }}</td>
+                            </tr>
+                            {% endfor %}
+                            <tr id="no_result" style="display: none;">
+                                <td colspan="5" class="error_msg" style="font-size: x-large; text-align: center;">There are no students that match your search.</td>
+                            </tr>
                     </tbody>
                 </table>
             </div>
