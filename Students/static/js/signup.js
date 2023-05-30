@@ -31,11 +31,11 @@ function validation() {
         return false;
     }
 
-    //email validation:
+     //email validation:
     var email = document.getElementById("email").value;
-    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var regex = /^[^\s@]+@gmail\.com$/;
     if (!regex.test(email)) {
-        alert("Please enter a valid email address that follows this format: name@x.y");
+        alert("Please enter a valid Gmail email address that follows this format: name@gmail.com");
         return false;
     }
 

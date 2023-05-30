@@ -84,6 +84,23 @@ function validation() {
             return false;
         }
     }
+    
+    //Status validation
+    var status=document.getElementById("status").value;
+    if (status=="select status")
+    {
+        alert ("Please Select a VALID Status")
+        return false;
+    }
+
+    //Gender validation
+    var Gender=document.getElementById("Gender").value;
+    if (Gender=="select gender")
+    {
+        alert ("Please Select a VALID Gender")
+        return false;
+    }
+    
     document.getElementById("submit-button").disabled = true;
     document.getElementById("registration-form").submit();
 
