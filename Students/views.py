@@ -215,7 +215,7 @@ def Login_validation(request):
                     # messages.success(request, 'Login successful!')
                     return redirect('AfterLogin')
         messages.error(request, 'Invalid email or password.')
-        return redirect('loginpage')
+        return render(request, 'loginpage.html', {'email': email, 'password': password})
 
     return render(request, 'loginpage')
 
