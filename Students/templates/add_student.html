@@ -50,7 +50,7 @@
                     <div class="Add">
                         {% csrf_token %}
                         <ion-icon name="person-outline"></ion-icon>
-                        <input type="text" id="name" name="name" required placeholder="Name">
+                        <input type="text" id="name" name="name" required placeholder="Name" value="{{ name }}">
                     </div>
                     <br>
                     <div class="Add">
@@ -60,32 +60,32 @@
                         </div>
                         {% endfor %}
                         <ion-icon name="albums-outline"></ion-icon>
-                        <input type="text" id="ID" name="ID" required placeholder="ID">
+                        <input type="text" id="ID" name="ID" required placeholder="ID" value="{{ ID }}">
                     </div>
                     <br>
                     <div class="Add">
                         {% csrf_token %}
                         <ion-icon name="stats-chart-outline"></ion-icon>
-                        <input type="text" id="GPA" name="GPA" required placeholder="GPA">
+                        <input type="text" id="GPA" name="GPA" required placeholder="GPA" value="{{ GPA }}">
                     </div>
                     <br>
                     <div class="Add">
                         {% csrf_token %}
                         <ion-icon name="call-outline"></ion-icon>
-                        <input type="tel" id="phoneno" name="phoneno" required placeholder="Phone Number">
+                        <input type="tel" id="phoneno" name="phoneno" required placeholder="Phone Number" value="{{ phoneno }}">
                     </div>
                     <br>
                     <div>
                         {% csrf_token %}
                         <ion-icon name="mail-outline"></ion-icon>
                         <input type="text" id="email" name="email"
-                            placeholder="Email in this format: Student@stud.uniabb.edu.eg" required>
+                            placeholder="Email in this format: Student@stud.uniabb.edu.eg" required value="{{ email }}">
                     </div>
                     <br>
                     <div>
                         {% csrf_token %}
                         <span>Birth Date: </span>
-                        <input type="date" id="date" name="date" required>
+                        <input type="date" id="date" name="date" required value="{{ date }}">
                     </div>
                     <br>
                     <label for="Gender">Gender: </label>
