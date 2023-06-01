@@ -39,10 +39,15 @@ def AddingSent(request):
             response_data = []
             response_data.append(
                 "Couldn't add this student to our system; This Student ID already exists.")
-            return render(request, 'add_student.html', {'response_data': response_data, 'name': name, 'gpa': gpa,
-                                                        'phone_number': phone_number, 'email': email,
-                                                        'birth_date': birth_date, 'gender': gender,
-                                                        'Status': Status, 'level': level, 'department': department})
+            return render(request, 'add_student.html', {
+        'name': name,
+        'ID': id,
+        'GPA': gpa,
+        'phoneno': phone_number,
+        'date': birth_date,
+        'email': email,
+        'response_data': response_data
+    })
 
         else:
             # Save the valid data to the database
