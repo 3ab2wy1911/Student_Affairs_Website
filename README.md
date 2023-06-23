@@ -95,35 +95,35 @@ To run the Student Affairs Website locally, follow these steps:
 ## Screenshots
 
 ### Home Page
-![Screenshot (571)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/78735149-6175-4759-b5e4-fcbedce871ed)
+![Screenshot (571)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/29a242a7-6851-499c-8639-0cae837517b1)
 *Homepage of the Student Affairs Website*
 
 ### Sign Up
-![Screenshot (575)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/1f3840e4-3df1-4a37-9eff-76696a6f36d6)
+![Screenshot (575)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/a0947566-ebf5-4608-9855-9a291c8efb48)
 *User's Registeration*
 
 ### Login
-![Screenshot (576)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/e1b9191d-81d4-44f1-bd95-57742caaa188)
+![Screenshot (576)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/76a8d9e3-1c89-4ea7-9d21-d7975cf73943)
 *User Login*
 
 ### Add Student
-![Screenshot (578)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/069075df-fda0-4de6-acf0-c680cdaae1c8)
+![Screenshot (578)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/297d3d71-a8b2-4bbe-a607-e1ad9cb18679)
 *Adding a new student to the system*
 
 ### Search Student
-![Screenshot (579)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/e904f1e1-84f0-4cd6-b8c2-fcc663fa6fcf)
+![Screenshot (579)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/95f41714-31bc-4a4d-b26f-fa85e87d7584)
 *Searching for active students*
 
 ### View Students
-![Screenshot (580)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/73b9bc72-7756-4927-9468-1c86c9c87d91)
+![Screenshot (580)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/cea847ca-97f9-421b-bfee-623a195064cc)
 *Viewing active and inactive students*
 
 ### Edit Student Info
-![Screenshot (581)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/a5fe9e5a-b2d5-4b7b-8663-48f552dfc368)
+![Screenshot (581)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/a8dff146-1cf8-4241-b889-597b33b030b3)
 *Editing student's info*
 
 ### Select Department
-![Screenshot (582)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/f3efc547-0af1-49a7-829b-fd6a5be0b521)
+![Screenshot (582)](https://github.com/3ab2wy1911/Student_Affairs_Website/assets/91838581/6df3a07d-d27d-433f-89a4-9ac0bbbf77f0)
 *Selecting Student's Department*
 
 ###
